@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro | Vida em Movimento</title>
+    <meta name="description" content="Cadastre-se como voluntário ou doador na ONG Vida em Movimento e participe da transformação social." />
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/img/ICONE.svg" alt="Vida em Movimento - Logotipo" width="180" />
+            </a>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Faça parte do movimento</h1>
+                <p>Preencha o formulário abaixo para se cadastrar como voluntário ou apoiador.</p>
+            </div>
+            <div class="hero-img">
+                <img src="assets/img/cadastro-hero.jpg" alt="Pessoa preenchendo um formulário digital" width="500"/>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section id="formulario-cadastro">
+            <h2>Formulário de Cadastro</h2>
+            <form action="#" method="POST" autocomplete="on">
+
+                <fieldset>
+                    <legend>Informações Pessoais</legend>
+
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required />
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required />
+
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" />
+
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required pattern="\(\d{2}\)\s\d{4,5}-\d{4}" placeholder="(11) 91234-5678" />
+
+                    <label for="data-nascimento">Data de Nascimento:</label>
+                    <input type="date" id="data-nascimento" name="data-nascimento" required />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Endereço</legend>
+
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco" required />
+
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep" required pattern="\d{5}-\d{3}" placeholder="00000-000" />
+
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" required />
+
+                    <label for="estado">Estado:</label>
+                    <select id="estado" name="estado" required>
+                        <option value="">Selecione</option>
+                        <option value="SP">SP</option>
+                        <option value="RJ">RJ</option>
+                        <option value="MG">MG</option>
+                        <option value="RS">RS</option>
+                        <option value="BA">BA</option>
+                        <option value="PE">PE</option>
+                        <option value="OUTRO">Outro</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Interesse</legend>
+
+                    <label for="tipo">Quero participar como:</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="">Selecione</option>
+                        <option value="voluntario">Voluntário</option>
+                        <option value="doador">Doador</option>
+                        <option value="ambos">Ambos</option>
+                    </select>
+
+                    <label for="mensagem">Conte um pouco sobre seu interesse:</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Fale sobre sua motivação ou como deseja ajudar..." required></textarea>
+                </fieldset>
+
+                <button type="submit">Enviar Cadastro</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vida em Movimento. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const cpf = document.getElementById("cpf");
+            const telefone = document.getElementById("telefone");
+            const cep = document.getElementById("cep");
+
+            cpf.addEventListener("input", function () {
+                this.value = this.value
+                    .replace(/\D/g, "")
+                    .replace(/(\d{3})(\d)/, "$1.$2")
+                    .replace(/(\d{3})(\d)/, "$1.$2")
+                    .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+            });
+
+            telefone.addEventListener("input", function () {
+                this.value = this.value
+                    .replace(/\D/g, "")
+                    .replace(/(\d{2})(\d)/, "($1) $2")
+                    .replace(/(\d{4,5})(\d{4})$/, "$1-$2");
+            });
+
+            cep.addEventListener("input", function () {
+                this.value = this.value
+                    .replace(/\D/g, "")
+                    .replace(/(\d{5})(\d{3})$/, "$1-$2");
+            });
+        });
+    </script>
+
+</body>
+</html>
