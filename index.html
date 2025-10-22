@@ -11,16 +11,22 @@
 
     <header>
         <nav>
-            <!-- Logotipo SVG -->
             <a href="index.html" class="logo">
                 <img src="assets/img/ICONE.svg" alt="Vida em Movimento - Logotipo" width="180" />
             </a>
 
-            <ul>
+            <div class="menu-toggle" id="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+
+            <ul id="menu">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="projetos.html">Projetos</a></li>
                 <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a class="bt-contato" href="#contato">Contato</a></li>
             </ul>
         </nav>
 
@@ -28,9 +34,10 @@
             <div class="hero-text">
                 <h1>Transformando comunidades, inspirando vidas</h1>
                 <p>Junte-se a nós para construir um futuro mais justo, sustentável e cheio de oportunidades.</p>
+                <a href="cadastro.html">Junte-se agora!</a>
             </div>
             <div class="hero-img">
-                <img src="assets/img/hero.jpg" alt="Ação comunitária em andamento com voluntários da ONG" width="500"/>
+                <img src="assets/img/hero.png" alt="Ação comunitária em andamento com voluntários da ONG"/>
             </div>
         </section>
     </header>
@@ -46,7 +53,17 @@
                     </p>
                 </div>
                 <div class="image">
-                    <img src="assets/img/quem-somos.jpg" alt="Equipe da ONG reunida em uma atividade social" width="500"/>
+                    <div class="sobrepor">
+                        <ul class="lista-dados">
+                            <li>+50mil</li>
+                            <li>+15</li>
+                        </ul>
+                        <ul class="lista-textos">
+                            <li>pessoas ajudadas</li>
+                            <li>estados</li>
+                        </ul>
+                    </div>
+                    <img src="assets/img/quem-somos.jpg" alt="Equipe da ONG reunida em uma atividade social"/>
                 </div>
             </div>
         </section>
@@ -80,35 +97,35 @@
                 <div class="text">
                     <h2>Como você pode ajudar</h2>
                     <ul>
-                        <li>Voluntariando-se: Participe de nossos projetos e receba certificado digital.</li>
-                        <li>Doando: Contribua com doações online para apoiar nossas ações.</li>
-                        <li>Compartilhando: Espalhe nossa causa nas redes sociais.</li>
+                        <li><strong>Voluntariando-se: </strong>Participe de nossos projetos e receba certificado digital.</li>
+                        <li><strong>Doando: </strong>Contribua com doações online para apoiar nossas ações.</li>
+                        <li><strong>Compartilhando: </strong>Espalhe nossa causa nas redes sociais.</li>
                     </ul>
                 </div>
                 <div class="image">
-                    <img src="assets/img/como-ajudar.jpg" alt="Voluntários em reunião estratégica com notebooks" width="500"/>
+                    <img src="assets/img/como-ajudar.jpg" alt="Voluntários em reunião estratégica com notebooks"/>
                 </div>
             </div>
         </section>
 
         <section id="valores">
-            <h2>Nossos valores</h2>
             <div class="valores-lista">
                 <img src="assets/img/valores.jpg" alt="Imagem simbólica de união com mãos dadas" width="500"/>
                 <ul>
-                    <li>Respeito à dignidade humana</li>
-                    <li>Transparência e ética</li>
-                    <li>Comprometimento com a causa social</li>
-                    <li>Sustentabilidade e inovação</li>
-                    <li>Valorização do trabalho voluntário</li>
+                    <h2>Nossos valores</h2>
+                    <li><span>1. </span>Respeito à dignidade humana</li>
+                    <li><span>2. </span>Transparência e ética</li>
+                    <li><span>3. </span>Comprometimento com a causa social</li>
+                    <li><span>4. </span>Sustentabilidade e inovação</li>
+                    <li><span>5. </span>Valorização do trabalho voluntário</li>
                 </ul>
             </div>
         </section>
 
         <section id="contato">
-            <h2>Fale conosco</h2>
             <div class="content">
                 <div class="text">
+                    <h2>Fale conosco</h2>
                     <p>Estamos prontos para conversar com você. Se deseja saber mais, colaborar ou se engajar, fale com a gente:</p>
                     <address>
                         Rua das Esperanças, 123 – Bairro Novo Horizonte – São Paulo/SP<br />
@@ -117,7 +134,7 @@
                     </address>
                 </div>
                 <div class="image">
-                    <img src="assets/img/contato.jpg" alt="Pessoa digitando em um notebook com um telefone ao lado" width="500"/>
+                    <img src="assets/img/contato.jpg" alt="Pessoa digitando em um notebook com um telefone ao lado"/>
                 </div>
             </div>
         </section>
@@ -126,6 +143,15 @@
     <footer>
         <p>&copy; 2025 Vida em Movimento. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>
