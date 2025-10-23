@@ -14,11 +14,18 @@
             <a href="index.html" class="logo">
                 <img src="assets/img/ICONE.svg" alt="Vida em Movimento - Logotipo" width="180" />
             </a>
-            <ul>
+
+            <div class="menu-toggle" id="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul id="menu">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="projetos.html">Projetos</a></li>
                 <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="index.html#contato">Contato</a></li>
+                <li><a class="bt-contato" href="index.html#contato">Contato</a></li>
             </ul>
         </nav>
         <section class="hero">
@@ -26,7 +33,7 @@
                 <h1>Faça parte do movimento</h1>
                 <p>Preencha o formulário abaixo para se cadastrar como voluntário ou apoiador.</p>
             </div>
-            <div class="hero-img">
+            <div class="hero-img-c">
                 <img src="assets/img/cadastro-hero.jpg" alt="Pessoa preenchendo um formulário digital" width="500"/>
             </div>
         </section>
@@ -34,7 +41,6 @@
 
     <main>
         <section id="formulario-cadastro">
-            <h2>Formulário de Cadastro</h2>
             <form action="#" method="POST" autocomplete="on">
 
                 <fieldset>
@@ -106,6 +112,13 @@
     </footer>
 
     <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+
 
         document.addEventListener("DOMContentLoaded", function () {
             const cpf = document.getElementById("cpf");
@@ -113,26 +126,32 @@
             const cep = document.getElementById("cep");
 
             cpf.addEventListener("input", function () {
-                this.value = this.value
-                    .replace(/\D/g, "")
+                let value = this.value.replace(/\D/g, ""); // remove tudo que não for número
+                if (value.length > 11) value = value.slice(0, 11); // limita a 11 dígitos
+
+                this.value = value
                     .replace(/(\d{3})(\d)/, "$1.$2")
                     .replace(/(\d{3})(\d)/, "$1.$2")
                     .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
             });
 
             telefone.addEventListener("input", function () {
-                this.value = this.value
-                    .replace(/\D/g, "")
+                let value = this.value.replace(/\D/g, "");
+                if (value.length > 11) value = value.slice(0, 11); // limita a 11 dígitos (para celulares com 9 dígitos)
+
+                this.value = value
                     .replace(/(\d{2})(\d)/, "($1) $2")
                     .replace(/(\d{4,5})(\d{4})$/, "$1-$2");
             });
 
             cep.addEventListener("input", function () {
-                this.value = this.value
-                    .replace(/\D/g, "")
-                    .replace(/(\d{5})(\d{3})$/, "$1-$2");
+                let value = this.value.replace(/\D/g, "");
+                if (value.length > 8) value = value.slice(0, 8); // limita a 8 dígitos
+
+                this.value = value.replace(/(\d{5})(\d{3})$/, "$1-$2");
             });
         });
+
     </script>
 
 </body>

@@ -14,11 +14,18 @@
             <a href="index.html" class="logo">
                 <img src="assets/img/ICONE.svg" alt="Vida em Movimento - Logotipo" width="180" />
             </a>
-            <ul>
+
+            <div class="menu-toggle" id="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul id="menu">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="projetos.html">Projetos</a></li>
                 <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="index.html#contato">Contato</a></li>
+                <li><a class="bt-contato" href="index.html#contato">Contato</a></li>
             </ul>
         </nav>
         <section class="hero">
@@ -26,7 +33,7 @@
                 <h1>Projetos que mudam vidas</h1>
                 <p>Conheça nossas ações sociais e descubra como você pode fazer parte dessa transformação.</p>
             </div>
-            <div class="hero-img">
+            <div class="hero-img-p">
                 <img src="assets/img/projetos-hero.jpg" alt="Voluntários da ONG trabalhando em diferentes projetos" width="500"/>
             </div>
         </section>
@@ -120,6 +127,15 @@
     <footer>
         <p>&copy; 2025 Vida em Movimento. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>
