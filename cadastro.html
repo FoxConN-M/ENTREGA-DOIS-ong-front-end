@@ -41,7 +41,7 @@
 
     <main>
         <section id="formulario-cadastro">
-            <form action="#" method="POST" autocomplete="on">
+            <form id="cadastro-form" autocomplete="on">
 
                 <fieldset>
                     <legend>Informações Pessoais</legend>
@@ -105,6 +105,14 @@
                 <button type="submit">Enviar Cadastro</button>
             </form>
         </section>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h2>Cadastro enviado!</h2>
+                <p>Obrigado por fazer parte da transformação.</p>
+                <button id="fechar-modal">Fechar</button>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -119,15 +127,14 @@
             menu.classList.toggle('active');
         });
 
-
         document.addEventListener("DOMContentLoaded", function () {
             const cpf = document.getElementById("cpf");
             const telefone = document.getElementById("telefone");
             const cep = document.getElementById("cep");
 
             cpf.addEventListener("input", function () {
-                let value = this.value.replace(/\D/g, ""); // remove tudo que não for número
-                if (value.length > 11) value = value.slice(0, 11); // limita a 11 dígitos
+                let value = this.value.replace(/\D/g, "");
+                if (value.length > 11) value = value.slice(0, 11);
 
                 this.value = value
                     .replace(/(\d{3})(\d)/, "$1.$2")
@@ -137,7 +144,7 @@
 
             telefone.addEventListener("input", function () {
                 let value = this.value.replace(/\D/g, "");
-                if (value.length > 11) value = value.slice(0, 11); // limita a 11 dígitos (para celulares com 9 dígitos)
+                if (value.length > 11) value = value.slice(0, 11);
 
                 this.value = value
                     .replace(/(\d{2})(\d)/, "($1) $2")
@@ -146,12 +153,25 @@
 
             cep.addEventListener("input", function () {
                 let value = this.value.replace(/\D/g, "");
-                if (value.length > 8) value = value.slice(0, 8); // limita a 8 dígitos
+                if (value.length > 8) value = value.slice(0, 8);
 
                 this.value = value.replace(/(\d{5})(\d{3})$/, "$1-$2");
             });
-        });
 
+
+            const form = document.getElementById("cadastro-form");
+            const modal = document.getElementById("modal");
+            const fecharModal = document.getElementById("fechar-modal");
+
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
+                modal.style.display = "flex";
+            });
+
+            fecharModal.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+        });
     </script>
 
 </body>
