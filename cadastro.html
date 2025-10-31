@@ -119,60 +119,8 @@
         <p>&copy; 2025 Vida em Movimento. Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('menu');
-
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('active');
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const cpf = document.getElementById("cpf");
-            const telefone = document.getElementById("telefone");
-            const cep = document.getElementById("cep");
-
-            cpf.addEventListener("input", function () {
-                let value = this.value.replace(/\D/g, "");
-                if (value.length > 11) value = value.slice(0, 11);
-
-                this.value = value
-                    .replace(/(\d{3})(\d)/, "$1.$2")
-                    .replace(/(\d{3})(\d)/, "$1.$2")
-                    .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
-            });
-
-            telefone.addEventListener("input", function () {
-                let value = this.value.replace(/\D/g, "");
-                if (value.length > 11) value = value.slice(0, 11);
-
-                this.value = value
-                    .replace(/(\d{2})(\d)/, "($1) $2")
-                    .replace(/(\d{4,5})(\d{4})$/, "$1-$2");
-            });
-
-            cep.addEventListener("input", function () {
-                let value = this.value.replace(/\D/g, "");
-                if (value.length > 8) value = value.slice(0, 8);
-
-                this.value = value.replace(/(\d{5})(\d{3})$/, "$1-$2");
-            });
-
-
-            const form = document.getElementById("cadastro-form");
-            const modal = document.getElementById("modal");
-            const fecharModal = document.getElementById("fechar-modal");
-
-            form.addEventListener("submit", function(e) {
-                e.preventDefault();
-                modal.style.display = "flex";
-            });
-
-            fecharModal.addEventListener("click", function() {
-                modal.style.display = "none";
-            });
-        });
-    </script>
+<script src="assets/js/spa.js"></script>
+<script src="assets/js/form.js"></script>
 
 </body>
 </html>

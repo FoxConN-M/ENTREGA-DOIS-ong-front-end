@@ -21,11 +21,10 @@
                 <span class="bar"></span>
             </div>
 
-
             <ul id="menu">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="index.html" data-route="home">Início</a></li>
+                <li><a href="projetos.html" data-route="projetos">Projetos</a></li>
+                <li><a href="cadastro.html" data-route="cadastro">Cadastro</a></li>
                 <li><a class="bt-contato" href="#contato">Contato</a></li>
             </ul>
         </nav>
@@ -71,25 +70,9 @@
         <section id="o-que-fazemos">
             <h2>O que fazemos</h2>
 
-            <div class="cards">
-                <article>
-                    <img src="assets/img/educacao.jpg" alt="Crianças participando de uma aula em grupo" width="500"/>
-                    <h3>Educação</h3>
-                    <p>Oficinas de reforço escolar e cursos de informática para crianças e adolescentes.</p>
-                </article>
+            <div id="spa-area"></div>
 
-                <article>
-                    <img src="assets/img/meio-ambiente.jpg" alt="Voluntários plantando árvores em uma praça" width="500"/>
-                    <h3>Meio Ambiente</h3>
-                    <p>Plantios comunitários, hortas urbanas e educação ambiental para moradores locais.</p>
-                </article>
-
-                <article>
-                    <img src="assets/img/cultura.jpg" alt="Jovens ensaiando uma apresentação de teatro" width="500"/>
-                    <h3>Cultura & Juventude</h3>
-                    <p>Aulas de teatro, música e dança gratuitas para jovens em situação de risco.</p>
-                </article>
-            </div>
+            <button id="carregar-projetos" class="btn">Carregar Projetos</button>
         </section>
 
         <section id="como-ajudar">
@@ -129,7 +112,7 @@
                     <p>Estamos prontos para conversar com você. Se deseja saber mais, colaborar ou se engajar, fale com a gente:</p>
                     <address>
                         Rua das Esperanças, 123 – Bairro Novo Horizonte – São Paulo/SP<br />
-                        (11) 91234‑5678<br />
+                        (11) 91234-5678<br />
                         <a href="mailto:contato@vidaemmovimento.org.br">contato@vidaemmovimento.org.br</a>
                     </address>
                 </div>
@@ -144,14 +127,9 @@
         <p>&copy; 2025 Vida em Movimento. Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('menu');
-
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('active');
-        });
-    </script>
+    <!-- ✅ Scripts: SPA + Validação -->
+    <script src="assets/js/spa.js"></script>
+    <script src="assets/js/form.js"></script>
 
 </body>
 </html>
