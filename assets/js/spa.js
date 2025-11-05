@@ -30,3 +30,16 @@ if (btnSPA && spaArea) {
 const toggle = document.getElementById('menu-toggle');
 const menu = document.getElementById('menu');
 if (toggle) toggle.onclick = () => menu.classList.toggle('active');
+
+const themeToggle = document.getElementById("toggle-theme");
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("light");
+    localStorage.setItem("tema", document.documentElement.classList.contains("light") ? "claro" : "escuro");
+  });
+
+  if (localStorage.getItem("tema") === "claro") {
+    document.documentElement.classList.add("light");
+  }
+}
